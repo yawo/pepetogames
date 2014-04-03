@@ -41,3 +41,8 @@ bash "install_vim" do
   EOH
   action :nothing
 end
+
+cookbook_file ".vimrc" do
+    path "/home/vagrant/.vimrc"
+      action :create
+end
