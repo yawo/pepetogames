@@ -13,6 +13,6 @@ recipe 'runit', 'Installs and configures runit'
 end
 
 depends 'build-essential'
-depends 'yum', '~> 3.0'
-depends 'yum-epel'
+#depends 'yum', '~> 3.0'
+#depends 'yum-epel'
 
