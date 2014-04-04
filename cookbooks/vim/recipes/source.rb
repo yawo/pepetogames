@@ -52,16 +52,16 @@ bash "pathogen plugins" do
     mkdir -p /home/vagrant/.vim/autoload /home/vagrant/.vim/bundle;
     curl -Sso /home/vagrant/.vim/autoload/pathogen.vim  https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
     git clone https://github.com/moll/vim-node.git /home/vagrant/.vim/bundle/node
-    git clone https://github.com/walm/jshint.vim.git  /home/vagrant/.vim/bundle/node
-    git clone https://github.com/marijnh/tern_for_vim.git  /home/vagrant/.vim/bundle/node
-    cd /home/vagrant/.vim/bundle/node/tern_for_vim
+    git clone https://github.com/walm/jshint.vim.git  /home/vagrant/.vim/bundle/jshint
+    git clone https://github.com/marijnh/tern_for_vim.git  /home/vagrant/.vim/bundle/tern_for_vim
+    cd /home/vagrant/.vim/bundle/tern_for_vim
     npm install 
-    git clone https://github.com/tpope/vim-surround.git  /home/vagrant/.vim/bundle/node
-    git clone https://github.com/tomtom/tcomment_vim.git  /home/vagrant/.vim/bundle/node
-    git clone ihttps://github.com/guileen/vim-node-dict.git /home/vagrant/.vim
+    git clone https://github.com/tpope/vim-surround.git  /home/vagrant/.vim/bundle/vim-surround
+    git clone https://github.com/tomtom/tcomment_vim.git  /home/vagrant/.vim/bundle/tcomment_vim
+    git clone ihttps://github.com/guileen/vim-node-dict.git /home/vagrant/.vim/vim-node-dict
     cd /home/vagrant/.vim/vim-node-dict
     chmod a+rwx makenodedict
-    git clone https://github.com/ahayman/vim-nodejs-complete.git /home/vagrant/.vim/
+    git clone https://github.com/ahayman/vim-nodejs-complete.git /home/vagrant/.vim/vim-nodejs-complete
     ./makenodedict /usr/bin/nodejs
   EOH
 end
