@@ -58,7 +58,7 @@ bash "pathogen plugins" do
     npm install 
     git clone https://github.com/tpope/vim-surround.git  /home/vagrant/.vim/bundle/vim-surround
     git clone https://github.com/tomtom/tcomment_vim.git  /home/vagrant/.vim/bundle/tcomment_vim
-    git clone ihttps://github.com/guileen/vim-node-dict.git /home/vagrant/.vim/vim-node-dict
+    git clone https://github.com/guileen/vim-node-dict.git /home/vagrant/.vim/vim-node-dict
     cd /home/vagrant/.vim/vim-node-dict
     chmod a+rwx makenodedict
     git clone https://github.com/ahayman/vim-nodejs-complete.git /home/vagrant/.vim/vim-nodejs-complete
