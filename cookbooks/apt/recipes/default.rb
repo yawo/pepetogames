@@ -26,8 +26,14 @@
 Chef::Log.debug 'apt is not installed. Apt-specific resources will not be executed.' unless apt_installed?
 
 # Run apt-get update to create the stamp file
+execute 'remove old repos' do
+  command 'sudo rm -rf /var/lib/apt/lists/*'
+  #ignore_failure true
+end
+
+
 execute 'apt-get-update' do
-  command 'rm -rf /var/lib/apt/lists/*; apt-get update'
+  command 'apt-get update'
   ignore_failure true
   only_if { apt_installed? }
   not_if { ::File.exists?('/var/lib/apt/periodic/update-success-stamp') }
@@ -35,7 +41,7 @@ end
 
 # For other recipes to call to force an update
 execute 'apt-get update' do
-  command 'rm -rf /var/lib/apt/lists/*; apt-get update'
+  command 'apt-get update'
   #command 'apt-get update'
   ignore_failure true
   only_if { apt_installed? }
@@ -63,7 +69,7 @@ package 'update-notifier-common' do
 end
 
 execute 'apt-get-update-periodic' do
-  command 'rm -rf /var/lib/apt/lists/*; apt-get update'
+  command 'apt-get update'
   ignore_failure true
   only_if do
     apt_installed? &&
