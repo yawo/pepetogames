@@ -1,5 +1,6 @@
 set nocompatible               " be iMproved
 "filetype off                   " required!
+execute pathogen#infect()
 syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
@@ -47,6 +48,8 @@ Bundle 'tpope/vim-commentary'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'mattn/webapi-vim'
+Bundle 'jelera/vim-javascript-syntax'
+Bunle  'javascript-libraries-syntax'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
@@ -206,3 +209,14 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.exe$\|\.so$\|\.dll$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
+autocmd User Node
+  \ if &filetype == "javascript" |
+  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
+  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
+  \   setlocal expandtab |
+  \ endif
+au FileType javascript call JavaScriptFold()
+let g:used_javascript_libs = 'underscore,backbone,jquery,angularjs,angularui'
+au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
+

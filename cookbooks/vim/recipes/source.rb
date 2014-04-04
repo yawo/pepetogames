@@ -44,5 +44,24 @@ end
 
 cookbook_file ".vimrc" do
     path "/home/vagrant/.vimrc"
-      action :create
+    action :create
+end
+
+bash "pathogen plugins" do
+  code <<-EOH
+    mkdir -p ~/.vim/autoload ~/.vim/bundle;
+    curl -Sso ~/.vim/autoload/pathogen.vim  https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+    git clone https://github.com/moll/vim-node.git ~/.vim/bundle/node
+    git clone https://github.com/walm/jshint.vim.git  ~/.vim/bundle/node
+    git clone https://github.com/marijnh/tern_for_vim.git  ~/.vim/bundle/node
+    cd ~/.vim/bundle/node/tern_for_vim
+    npm install 
+    git clone https://github.com/tpope/vim-surround.git  ~/.vim/bundle/node
+    git clone https://github.com/tomtom/tcomment_vim.git  ~/.vim/bundle/node
+    git clone ihttps://github.com/guileen/vim-node-dict.git ~/.vim
+    cd ~/.vim/vim-node-dict
+    chmod a+rwx makenodedict
+    git clone https://github.com/ahayman/vim-nodejs-complete.git ~/.vim/
+    ./makenodedict /usr/bin/nodejs
+  EOH
 end
