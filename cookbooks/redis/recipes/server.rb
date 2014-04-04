@@ -33,10 +33,10 @@ end
 
 kill_old_service('redis-server'){ only_if{ File.exists?("/etc/init.d/redis-server") } }
 
-#runit_service "redis_server" do
+runit_service "redis_server" do
 #  run_state     node[:redis][:server][:run_state]
-#  options       node[:redis]
-#end
+  options       node[:redis]
+end
 
 announce(:redis, :server,
   :port => node[:redis][:server][:port])
