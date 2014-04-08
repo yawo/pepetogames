@@ -20,7 +20,7 @@
 ################################################################################
 # Download and install
 
-default['mongodb']['download']['version'] = '2.4.6'
+default['mongodb']['download']['version'] = '2.6.0'
 default['mongodb']['download']['checksum'] = '65bf44b1eaaf35052f53e1700bfe890b0951f65600716f0c12fd4db05421383c' # SHA-256
 # don't change this, unless you're running your own download server
 default['mongodb']['download']['host'] = 'fastdl.mongodb.org'
