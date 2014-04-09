@@ -28,10 +28,15 @@ Chef::Log.debug 'apt is not installed. Apt-specific resources will not be execut
 # Run apt-get update to create the stamp file
 execute 'remove old repos' do
   command 'sudo rm -rf /var/lib/apt/lists/*'
-  #ignore_failure true
-  only_if { apt_installed? }
-  not_if { ::File.exists?('/var/lib/apt/periodic/update-success-stamp') }
+  notifies :run, "execute[touch removedAptCaches]", :immediately
+  not_if { ::File.exists?('/opt/removedAptCaches') }
 end
+
+execute 'touch removedAptCaches' do
+  command 'sudo touch /opt/removedAptCaches'
+  action :nothing
+end
+
 
 
 execute 'apt-get-update' do
