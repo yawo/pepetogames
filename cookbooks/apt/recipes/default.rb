@@ -29,6 +29,8 @@ Chef::Log.debug 'apt is not installed. Apt-specific resources will not be execut
 execute 'remove old repos' do
   command 'sudo rm -rf /var/lib/apt/lists/*'
   #ignore_failure true
+  only_if { apt_installed? }
+  not_if { ::File.exists?('/var/lib/apt/periodic/update-success-stamp') }
 end
 
 
