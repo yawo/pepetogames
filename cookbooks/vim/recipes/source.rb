@@ -45,6 +45,9 @@ end
 cookbook_file ".vimrc" do
     path "/home/vagrant/.vimrc"
     action :create
+    mode 0755
+    owner "vagrant"
+    group "vagrant"
 end
 
 bash "pathogen plugins" do
@@ -63,5 +66,6 @@ bash "pathogen plugins" do
     chmod a+rwx makenodedict
     git clone https://github.com/ahayman/vim-nodejs-complete.git /home/vagrant/.vim/vim-nodejs-complete
     ./makenodedict /usr/bin/nodejs
+    chown -R vagrant /home/vagrant
   EOH
 end
