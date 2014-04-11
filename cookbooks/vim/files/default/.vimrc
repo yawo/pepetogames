@@ -49,7 +49,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'jelera/vim-javascript-syntax'
-Bunle  'javascript-libraries-syntax'
+Bundle  'javascript-libraries-syntax'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
