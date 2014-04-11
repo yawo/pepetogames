@@ -21,8 +21,8 @@
 
 package_machine = node['kernel']['machine'] == "x86_64" ? "x86_64" : "x86"
 
-default['couchbase']['server']['edition'] = "community"
-default['couchbase']['server']['version'] = "2.2.0"
+default['couchbase']['server']['edition'] = "enterprise""
+default['couchbase']['server']['version'] = "2.5.1"
 
 package_base_name = if Gem::Version.new(node["couchbase"]["server"]["version"]) > Gem::Version.new("2.1.1")
                       "couchbase-server-#{node['couchbase']['server']['edition']}_#{node['couchbase']['server']['version']}_#{package_machine}"
