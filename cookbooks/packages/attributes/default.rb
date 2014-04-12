@@ -1,1 +1,1 @@
-default['packages'] = []
+default['packages'] = ['dos2unix']
