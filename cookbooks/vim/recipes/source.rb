@@ -66,6 +66,6 @@ bash "pathogen plugins" do
     chmod a+rwx makenodedict
     git clone https://github.com/ahayman/vim-nodejs-complete.git /home/vagrant/.vim/vim-nodejs-complete
     ./makenodedict /usr/bin/nodejs
-    chown -R vagrant /home/vagrant
+    chown -R vagrant:vagrant /home/vagrant
   EOH
 end
