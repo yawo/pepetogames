@@ -59,3 +59,13 @@ user node[:node][:user] do
 end
 
 include_recipe 'node::packages'
+
+bash "install_specific_modules" do
+  user "vagrant"
+  cwd "/home/vagrant"
+  code <<-EOH
+  npm install couchbase
+  EOH
+end
+
+
