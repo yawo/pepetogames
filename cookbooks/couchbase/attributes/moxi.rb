@@ -21,7 +21,7 @@
 
 package_machine = node['kernel']['machine'] == "x86_64" ? "x86_64" : "x86"
 
-default['couchbase']['moxi']['version'] = "1.8.1"
+default['couchbase']['moxi']['version'] = "2.5.0"
 
 case platform
 when "ubuntu", "debian"

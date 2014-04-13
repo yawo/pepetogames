@@ -19,4 +19,4 @@
 # limitations under the License.
 #
 
-default['couchbase']['client']['version'] = '2.0.3-1'
+default['couchbase']['client']['version'] = '2.3.0'

@@ -26,3 +26,4 @@
 #
 
 default['couchbase']['buckets'] = {}
+default['couchbase']['buckets']['pepeto']={}
