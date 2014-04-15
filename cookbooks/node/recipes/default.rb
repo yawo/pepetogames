@@ -61,7 +61,7 @@ end
 include_recipe 'node::packages'
 
 bash "install_specific_modules" do
-  user "vagrant"
+  user "root"
   cwd "/home/vagrant"
   code <<-EOH
   npm install couchbase
