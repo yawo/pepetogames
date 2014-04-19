@@ -58,14 +58,19 @@ user node[:node][:user] do
   system true
 end
 
-include_recipe 'node::packages'
 
 bash "install_specific_modules" do
   user "root"
   cwd "/home/vagrant"
   code <<-EOH
+  mkdir -p /home/vagrant/npm/bin
+  npm config set prefix ~/npm
+  chown -R vagrant:vagrant /vagrant
+  chown -R vagrant:vagrant /home/vagrant
+
   npm install couchbase
   EOH
 end
 
 
+include_recipe 'node::packages'

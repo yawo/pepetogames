@@ -67,5 +67,6 @@ bash "pathogen plugins" do
     git clone https://github.com/ahayman/vim-nodejs-complete.git /home/vagrant/.vim/vim-nodejs-complete
     ./makenodedict /usr/bin/nodejs
     chown -R vagrant:vagrant /home/vagrant
+    locale-gen en_US.UTF-8
   EOH
 end
