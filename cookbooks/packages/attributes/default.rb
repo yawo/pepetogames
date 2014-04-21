@@ -1,1 +1,1 @@
-default['packages'] = ['dos2unix']
+default['packages'] = ['dos2unix','xdg-utils']
